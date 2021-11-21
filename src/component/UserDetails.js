@@ -1,18 +1,24 @@
 import React, { useState, useEffect } from 'react'
 import tableIcons from "../sherd/MaterialTableIcons"
-import Header from './Header'
+import { FaPhone, FaUserAlt } from 'react-icons/fa'
 import { useParams } from 'react-router-dom';
+import '../sherd/styles.css'
 
 const UserDetails = () => {
 
   const { username } = useParams();
   const [users, setUsers] = useState([])
+  const srcOfMap="https://maps.googleapis.com/maps/api/js?key=AIzaSyBMAujXi78cdfPHoC_aK3SIRDjSEE7fgro&callback=initMap&libraries=&v=weekly";
+  function uppercase(word) {
+    return word.charAt(0).toUpperCase() + word.slice(1);
+  };
+  const apiKey='AIzaSyBMAujXi78cdfPHoC_aK3SIRDjSEE7fgro'
+
 
   useEffect(async () => {
     const response = await fetch('https://randomuser.me/api/?results=200&seed=noam')
     const dataJson = await response.json();
     const usersItems = dataJson.results;
-    // console.log(typeof usersItems[0].gender);
     setUsers(usersItems)
   }, []);
 
@@ -23,19 +29,61 @@ const UserDetails = () => {
       </>
     )
   }
-
-  const userData = 
+  const userData =
     users.filter(user =>
-      user.login.username == username 
+      user.login.username === username
     )[0]
 
-  // console.log(typeof userData)
-
   return (
-    <>
-      <h1>user</h1>
-      <div><h1>Help. The name is {userData.login.username} </h1></div>
-     </>
+    <div className="container">
+
+      <h1>User Details</h1>
+      <div className="clearfix">
+        <div className="row">
+          <div className="col-md-4 animated fadeIn">
+
+            <div className="card">
+              <div className="card-body">
+                <div className="avatar">
+                  <img
+                    src={userData.picture.large}
+                    className="card-img-top"
+                    alt=""
+                  />
+                </div>
+                <h5 className="card-title">
+                  {uppercase(userData.name.first) +
+                    " " +
+                    uppercase(userData.name.last)}
+                </h5>
+                <p className="card-text">
+                  {userData.email}
+
+                </p>
+                <p className="card-text">
+                  {userData.gender}
+
+                </p>
+                <p className="card-text">
+                  {userData.dob.age}
+
+                </p>
+                <p className="card-text">
+                  {userData.location.city +
+                    ", " +
+                    uppercase(userData.location.country)}
+                  <br />
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+
   )
 }
 

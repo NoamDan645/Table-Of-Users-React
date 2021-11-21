@@ -1,37 +1,30 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import Header from "./component/Header.js";
-import Table1 from "./component/Table1";
+import Table from "./component/Table";
 import UserDetails from './component/UserDetails'
+//  import GoogleMaps from './component/GoogleMaps'
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
-// import { Router } from "@material-ui/icons";
 
 function App() {
   
 
   return (
     <div className="App">
+      {/* <GoogleMaps/>  */}
       <Router>
         <Switch>
           <Route exact path="/">
-            <Table1 />
+            <Table />
           </Route>
           <Route exact path="/UserDetails/:username">
             <UserDetails />
           </Route>
         </Switch>
       </Router>
-
-
-
-
-      {/* <UserDetails /> */}
-
     </div>
   );
 }
