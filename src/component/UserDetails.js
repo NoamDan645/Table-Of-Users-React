@@ -8,15 +8,16 @@ const UserDetails = () => {
 
   const { username } = useParams();
   const [users, setUsers] = useState([])
-  const srcOfMap="https://maps.googleapis.com/maps/api/js?key=AIzaSyBMAujXi78cdfPHoC_aK3SIRDjSEE7fgro&callback=initMap&libraries=&v=weekly";
+
   function uppercase(word) {
     return word.charAt(0).toUpperCase() + word.slice(1);
   };
-  const apiKey='AIzaSyBMAujXi78cdfPHoC_aK3SIRDjSEE7fgro'
+  // const srcOfMap = "https://maps.googleapis.com/maps/api/js?key=AIzaSyBMAujXi78cdfPHoC_aK3SIRDjSEE7fgro&callback=initMap&libraries=&v=weekly";
+
 
 
   useEffect(async () => {
-    const response = await fetch('https://randomuser.me/api/?results=200&seed=noam')
+    const response = await fetch('https://randomuser.me/api/?results=200&seed=users')
     const dataJson = await response.json();
     const usersItems = dataJson.results;
     setUsers(usersItems)
@@ -81,6 +82,7 @@ const UserDetails = () => {
         </div>
 
       </div>
+    
     </div>
 
 

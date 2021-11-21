@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import Table from "./component/Table";
 import UserDetails from './component/UserDetails'
-//  import GoogleMaps from './component/GoogleMaps'
 import {
   BrowserRouter as Router,
   Switch,
@@ -14,7 +13,6 @@ function App() {
 
   return (
     <div className="App">
-      {/* <GoogleMaps/>  */}
       <Router>
         <Switch>
           <Route exact path="/">

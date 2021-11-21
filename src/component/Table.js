@@ -11,7 +11,7 @@ const Table1 = () => {
 
 
   useEffect(async () => {
-    const response = await fetch('https://randomuser.me/api/?results=200&seed=noam')
+    const response = await fetch('https://randomuser.me/api/?results=200&seed=users')
     const dataJson = await response.json();
     const usersItems = dataJson.results;
     console.log(usersItems);
@@ -20,8 +20,7 @@ const Table1 = () => {
 
 
   const columns = [
-    // { title: "picture", field: "picture.thumbnail", align: 'center', render: (rowData) => <img src={rowData.picture.large} style={{ width: 40, borderRadius: "50%" }} />, },
-    { title: "picture", field: "picture.medium", align: 'center', render: (rowData) => <img src={rowData.picture} style={{ width: 40, borderRadius: "50%" }} />, },
+    { title: "picture", field: "picture.thumbnail", align: 'center', render: (rowData) => <img src={rowData.picture} style={{ width: 40, borderRadius: "50%" }} />, },
     { title: "Name", field: "name.first", align: 'center' },
     { title: "email", field: "email", align: 'center' },
     { title: "gender", field: "gender", align: 'center' },
@@ -35,7 +34,7 @@ const Table1 = () => {
  
   }
  return (
-    <div>
+    <div className="table">
       <h1>All Users </h1>
       
       <MaterialTable
@@ -44,7 +43,7 @@ const Table1 = () => {
         columns={columns}
         data={users}
         onRowClick={(event, rowData) => userID(event, rowData)}
-        options={{ pageSizeOptions: [10, 20, 30, 40] }}
+        options={{ pageSizeOptions: [10, 20, 30, 40] ,pageSize:10}}
       />
     </div>
 
