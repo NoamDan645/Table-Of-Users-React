@@ -9,7 +9,6 @@ const Table1 = () => {
   const [users, setUsers] = useState([{}])
   const history = useHistory();
 
-
   useEffect(async () => {
     const response = await fetch('https://randomuser.me/api/?results=200&seed=users')
     const dataJson = await response.json();
@@ -20,7 +19,7 @@ const Table1 = () => {
 
 
   const columns = [
-    { title: "picture", field: "picture.thumbnail", align: 'center', render: (rowData) => <img src={rowData.picture} style={{ width: 40, borderRadius: "50%" }} />, },
+    { title: "picture", field: "picture.large", align: 'center', render: (rowData) => <img src={rowData.picture} style={{ width: 40, borderRadius: "50%" }} />, },
     { title: "Name", field: "name.first", align: 'center' },
     { title: "email", field: "email", align: 'center' },
     { title: "gender", field: "gender", align: 'center' },

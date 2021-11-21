@@ -12,7 +12,6 @@ const UserDetails = () => {
   function uppercase(word) {
     return word.charAt(0).toUpperCase() + word.slice(1);
   };
-  // const srcOfMap = "https://maps.googleapis.com/maps/api/js?key=AIzaSyBMAujXi78cdfPHoC_aK3SIRDjSEE7fgro&callback=initMap&libraries=&v=weekly";
 
 
 
