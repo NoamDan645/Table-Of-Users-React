@@ -32,13 +32,13 @@ const UserDetails = () => {
   const userData =
     users.filter(user =>
       user.login.username === username
-    )[0]
-
+    )[0];
+  console.log(userData.location);
   return (
     <div className="container">
 
       <h1>User Details</h1>
-      <div className="clearfix">
+      <div className="container">
         <div className="row">
           <div className="col-md-4 animated fadeIn">
 
@@ -81,7 +81,7 @@ const UserDetails = () => {
         </div>
 
       </div>
-    
+
     </div>
 
 
